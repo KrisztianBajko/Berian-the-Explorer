@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public float speed;
     // jump height
     public float jumpForce;
-
+    public ParticleSystem dirt;
     public TextMeshProUGUI finalScore;
     public TextMeshProUGUI failScore;
     public LayerMask groundLayer;
@@ -66,12 +66,15 @@ public class Player : MonoBehaviour
        
         if (horizontalinput != 0 )
         {
+            
             anim.SetBool("isRunning", true);
             Vector3 movement = new Vector3(horizontalinput, 0, 0);
             berian.transform.rotation = Quaternion.LookRotation(movement);
         }
         else
         {
+          
+            
             anim.SetBool("isRunning", false);
         }
             
@@ -86,6 +89,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            
             rb.AddForce(Vector3.up * jumpForce);
             anim.SetTrigger("jump");
             audioSource.PlayOneShot(audioClips[6]);

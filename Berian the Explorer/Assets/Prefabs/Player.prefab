@@ -155,6 +155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd98ea9ecfa85f642bb229a3674f09d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: 4737b4b478ad70a44951eecfd3639ad0, type: 3}
+  - {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
+  - {fileID: 8300000, guid: 8ebcb6234d419344daa712ba65bb3798, type: 3}
+  - {fileID: 8300000, guid: 59ceeff8ab94d1f47b55c102760a6cc4, type: 3}
+  - {fileID: 8300000, guid: 0c80213e2211bb4468dee9cfda7a7414, type: 3}
+  - {fileID: 8300000, guid: 5d2dbed226b3e47479f89c0e227de4a6, type: 3}
+  - {fileID: 8300000, guid: ea1cfea7478089443a4549f78e46ee75, type: 3}
+  trophy:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerHealth: 0
   totalScore: 0
   speed: 8
