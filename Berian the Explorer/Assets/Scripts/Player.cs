@@ -6,31 +6,30 @@ public class Player : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] audioClips;
+    public ParticleSystem dirt;
+    public LayerMask groundLayer;
+    public Animator anim;
+    private Rigidbody rb;
+    public TextMeshProUGUI finalScore;
+    public TextMeshProUGUI failScore;
     public GameObject[] trophy;
-    public int playerHealth;
-    public  int totalScore;
-    private Vector3 startingPosition;
+    public GameObject failScreen;
+    public GameObject finishScreen;
+    private GameObject groundCheck;
+    private GameObject berian;
     // move speed
     public float speed;
     // jump height
     public float jumpForce;
-    public ParticleSystem dirt;
-    public TextMeshProUGUI finalScore;
-    public TextMeshProUGUI failScore;
-    public LayerMask groundLayer;
-    public Animator anim;
     //distance between player and the ground
     private float raduis = 0.4f;
-    private bool isGrounded;
-    private Rigidbody rb;
-    private GameObject groundCheck;
-    private GameObject berian;
-
-    public float timer = 8f;
+    // timer for the power up
+    private float timer = 10f;
+    public int playerHealth;
+    public  int totalScore;
+    private Vector3 startingPosition;
     public bool hasPowerUp;
-
-    public GameObject failScreen;
-    public GameObject finishScreen;
+    private bool isGrounded;
     void Start()
     {
         Cursor.visible = false;
@@ -40,10 +39,9 @@ public class Player : MonoBehaviour
         berian = GameObject.Find("Berian");
         groundCheck = GameObject.Find("GroundCheck");
     }
-
     void Update()
     {
-        
+        //if the player has power up change the speed of the background music
         if (hasPowerUp)
         {
             audioSource.pitch = 1.3f;
@@ -58,67 +56,62 @@ public class Player : MonoBehaviour
         Movement();  
         Jumping();
     }
-
     void Movement()
     {
         float horizontalinput = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-
-       
+        // if the player moves then we turn on the run animation
         if (horizontalinput != 0 )
         {
-            
             anim.SetBool("isRunning", true);
             Vector3 movement = new Vector3(horizontalinput, 0, 0);
             berian.transform.rotation = Quaternion.LookRotation(movement);
         }
         else
         {
-          
-            
             anim.SetBool("isRunning", false);
         }
-            
-
+        //move the player on the horizontal axes
         transform.Translate(horizontalinput, 0, 0);
     }
     void Jumping()
     {
         //check if the player on the ground
         isGrounded = Physics.CheckSphere(groundCheck.transform.position, raduis, groundLayer);
-
-
+        // if the player on the ground then can jump/play jump animation/ play jump sound
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            
             rb.AddForce(Vector3.up * jumpForce);
             anim.SetTrigger("jump");
             audioSource.PlayOneShot(audioClips[6]);
         }
     }
-     
     private void OnTriggerEnter(Collider other)
     {
+        // depend on what we collide we do play different sound effects
         if (other.gameObject.CompareTag("PowerUp"))
         {
+            //turn on the power up for the player wich allaws the player to kill the enemies by touching them
             audioSource.PlayOneShot(audioClips[1]);
             hasPowerUp = true;
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Diamond"))
         {
+            //increase the score whenever we collect a gem
             audioSource.PlayOneShot(audioClips[5]);
             totalScore++;
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Finish"))
         {
+            // turn on the finish screen and show the best score
             audioSource.PlayOneShot(audioClips[0]);
             finalScore.text = "Your Score : " + totalScore.ToString();
             Time.timeScale = 0;
             finishScreen.SetActive(true);
             Cursor.visible = true;
-
         }
+        // depend on our score we turn on the right trophy for the player
         if (other.gameObject.CompareTag("Trophy"))
         {
             if (totalScore >= 70)
@@ -132,13 +125,12 @@ public class Player : MonoBehaviour
             else
             {
                 trophy[0].SetActive(true);
-
             }
-
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
+        // if the player collides with an enemy then the player will die, if the player has power up then the enemy will die instead
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (hasPowerUp)
@@ -163,13 +155,8 @@ public class Player : MonoBehaviour
                     Destroy(gameObject);
                     failScreen.SetActive(true);
                     failScore.text = "Your score : " + totalScore.ToString();
-
                 }
-                
-               
             }
-
-
         }
     }
 }

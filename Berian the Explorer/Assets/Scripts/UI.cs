@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
@@ -9,18 +7,15 @@ public class UI : MonoBehaviour
     public GameObject powerUp;
     public GameObject health1,health2,health3;
     private Player player;
-
-
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
-
-    // Update is called once per frame
     void Update()
     {
+        //update the score every time we collect a new gem
         score.text = player.totalScore.ToString();
-
+        //turn on/off the power up icon
         if (player.hasPowerUp)
         {
             powerUp.SetActive(true);
@@ -29,7 +24,7 @@ public class UI : MonoBehaviour
         {
             powerUp.SetActive(false);
         }
-
+        //update the lives icons depending on how many times we died
         if (player.playerHealth == 3)
         {
             health3.SetActive(true);
@@ -54,7 +49,6 @@ public class UI : MonoBehaviour
             health2.SetActive(false);
             health1.SetActive(false);
         }
-
     }
     public void StartAgain()
     {
@@ -64,5 +58,5 @@ public class UI : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 // simple follow waypoint script where the game object will follow the given waypoints and turn smoothly towards the next waypoint
 public class Enemy : MonoBehaviour
 {
@@ -8,7 +6,7 @@ public class Enemy : MonoBehaviour
     // a waypoints array
     public GameObject[] waypoints;
     // the current waypoint index
-    public int currentWP = 0;
+    private int currentWP = 0;
     // the moving speed
     public float speed = 10f;
     // the turning speed
@@ -18,14 +16,15 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        //if the enemy is dead turn off the collider
         if (isDead)
         {
             gameObject.GetComponent<Collider>().enabled = false;
             return;
         }
-            // the distance between the game object and the next waypoint
-            // if we reach the waypoint increase the current waypoint
-            if (Vector3.Distance(transform.position, waypoints[currentWP].transform.position) < turningDistance)
+        // the distance between the game object and the next waypoint
+        // if we reach the waypoint increase the current waypoint
+        if (Vector3.Distance(transform.position, waypoints[currentWP].transform.position) < turningDistance)
         {
             currentWP++;
         }
@@ -34,9 +33,6 @@ public class Enemy : MonoBehaviour
         {
             currentWP = 0;
         }
-        // turn the game object to the goal direction in this way the game object will snap straight away to the direction of the goal position
-        //transform.LookAt(waypoints[currentWP].transform);
-
         // the direction of the next goal
         Quaternion lookatWP = Quaternion.LookRotation(waypoints[currentWP].transform.position - transform.position);
         // turn the game object to the direction of the next goal position but smoothly with a given rotation speed;
