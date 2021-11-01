@@ -59,7 +59,7 @@ public class UI : MonoBehaviour
     }
     public void StartAgain()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1); 
     }
     public void QuitGame()
     {

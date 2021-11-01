@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 public class Player : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
+    public GameObject[] trophy;
     public int playerHealth;
     public  int totalScore;
     private Vector3 startingPosition;
@@ -43,9 +46,11 @@ public class Player : MonoBehaviour
         
         if (hasPowerUp)
         {
+            audioSource.pitch = 1.3f;
             timer -= Time.deltaTime;
             if(timer  <= 0)
             {
+                audioSource.pitch = 1;
                 hasPowerUp = false;
                 timer = 8f;
             }
@@ -83,27 +88,48 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce);
             anim.SetTrigger("jump");
+            audioSource.PlayOneShot(audioClips[6]);
         }
     }
-
+     
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PowerUp"))
         {
+            audioSource.PlayOneShot(audioClips[1]);
             hasPowerUp = true;
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Diamond"))
         {
+            audioSource.PlayOneShot(audioClips[5]);
             totalScore++;
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Finish"))
         {
+            audioSource.PlayOneShot(audioClips[0]);
             finalScore.text = "Your Score : " + totalScore.ToString();
             Time.timeScale = 0;
             finishScreen.SetActive(true);
             Cursor.visible = true;
+
+        }
+        if (other.gameObject.CompareTag("Trophy"))
+        {
+            if (totalScore >= 70)
+            {
+                trophy[2].SetActive(true);
+            }
+            else if (totalScore >= 60)
+            {
+                trophy[1].SetActive(true);
+            }
+            else
+            {
+                trophy[0].SetActive(true);
+
+            }
 
         }
     }
@@ -113,6 +139,7 @@ public class Player : MonoBehaviour
         {
             if (hasPowerUp)
             {
+                audioSource.PlayOneShot(audioClips[2]);
                 collision.gameObject.GetComponent<Enemy>().isDead = true;
                 Animator enemyAnim = collision.gameObject.GetComponentInChildren<Animator>();
                 enemyAnim.SetBool("isDead", true);
@@ -122,12 +149,13 @@ public class Player : MonoBehaviour
             {
                 if(playerHealth > 0)
                 {
+                    audioSource.PlayOneShot(audioClips[4]);
                     playerHealth--;
                     transform.position = startingPosition;
                 }
                 else
                 {
-
+                    audioSource.PlayOneShot(audioClips[3]);
                     Destroy(gameObject);
                     failScreen.SetActive(true);
                     failScore.text = "Your score : " + totalScore.ToString();
