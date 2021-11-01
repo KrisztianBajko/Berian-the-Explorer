@@ -1,73 +1,191 @@
 fileFormatVersion: 2
 guid: 16a7ff9113ccf714f83e200332b45ee5
-timeCreated: 1552025701
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Dman_head_TopSHJnt
-    100002: Dman_l_Arm_ClavicleSHJnt
-    100004: Dman_l_Arm_ElbowSHJnt
-    100006: Dman_l_Arm_ShoulderSHJnt
-    100008: Dman_l_Arm_WristSHJnt
-    100010: Dman_l_Fingers_01_01SHJnt
-    100012: Dman_l_Fingers_02_01SHJnt
-    100014: Dman_l_Leg_AnkleSHJnt
-    100016: Dman_l_Leg_BallSHJnt
-    100018: Dman_l_Leg_HipSHJnt
-    100020: Dman_l_Leg_KneeSHJnt
-    100022: Dman_l_Leg_ToeSHJnt
-    100024: Dman_r_Arm_ClavicleSHJnt
-    100026: Dman_r_Arm_ElbowSHJnt
-    100028: Dman_r_Arm_ShoulderSHJnt
-    100030: Dman_r_Arm_WristSHJnt
-    100032: Dman_r_Fingers_01_01SHJnt
-    100034: Dman_r_Fingers_02_01SHJnt
-    100036: Dman_r_Leg_AnkleSHJnt
-    100038: Dman_r_Leg_BallSHJnt
-    100040: Dman_r_Leg_HipSHJnt
-    100042: Dman_r_Leg_KneeSHJnt
-    100044: Dman_r_Leg_ToeSHJnt
-    100046: Dman_ROOTSHJnt
-    100048: Dman_Spline_01SHJnt
-    100050: Dman_Spline_02SHJnt
-    100052: Dman_Spline_TopSHJnt
-    100054: //RootNode
-    400000: Dman_head_TopSHJnt
-    400002: Dman_l_Arm_ClavicleSHJnt
-    400004: Dman_l_Arm_ElbowSHJnt
-    400006: Dman_l_Arm_ShoulderSHJnt
-    400008: Dman_l_Arm_WristSHJnt
-    400010: Dman_l_Fingers_01_01SHJnt
-    400012: Dman_l_Fingers_02_01SHJnt
-    400014: Dman_l_Leg_AnkleSHJnt
-    400016: Dman_l_Leg_BallSHJnt
-    400018: Dman_l_Leg_HipSHJnt
-    400020: Dman_l_Leg_KneeSHJnt
-    400022: Dman_l_Leg_ToeSHJnt
-    400024: Dman_r_Arm_ClavicleSHJnt
-    400026: Dman_r_Arm_ElbowSHJnt
-    400028: Dman_r_Arm_ShoulderSHJnt
-    400030: Dman_r_Arm_WristSHJnt
-    400032: Dman_r_Fingers_01_01SHJnt
-    400034: Dman_r_Fingers_02_01SHJnt
-    400036: Dman_r_Leg_AnkleSHJnt
-    400038: Dman_r_Leg_BallSHJnt
-    400040: Dman_r_Leg_HipSHJnt
-    400042: Dman_r_Leg_KneeSHJnt
-    400044: Dman_r_Leg_ToeSHJnt
-    400046: Dman_ROOTSHJnt
-    400048: Dman_Spline_01SHJnt
-    400050: Dman_Spline_02SHJnt
-    400052: Dman_Spline_TopSHJnt
-    400054: //RootNode
-    7400000: Idle
-    9500000: //RootNode
-    11100000: //RootNode
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Dman_head_TopSHJnt
+  - first:
+      1: 100002
+    second: Dman_l_Arm_ClavicleSHJnt
+  - first:
+      1: 100004
+    second: Dman_l_Arm_ElbowSHJnt
+  - first:
+      1: 100006
+    second: Dman_l_Arm_ShoulderSHJnt
+  - first:
+      1: 100008
+    second: Dman_l_Arm_WristSHJnt
+  - first:
+      1: 100010
+    second: Dman_l_Fingers_01_01SHJnt
+  - first:
+      1: 100012
+    second: Dman_l_Fingers_02_01SHJnt
+  - first:
+      1: 100014
+    second: Dman_l_Leg_AnkleSHJnt
+  - first:
+      1: 100016
+    second: Dman_l_Leg_BallSHJnt
+  - first:
+      1: 100018
+    second: Dman_l_Leg_HipSHJnt
+  - first:
+      1: 100020
+    second: Dman_l_Leg_KneeSHJnt
+  - first:
+      1: 100022
+    second: Dman_l_Leg_ToeSHJnt
+  - first:
+      1: 100024
+    second: Dman_r_Arm_ClavicleSHJnt
+  - first:
+      1: 100026
+    second: Dman_r_Arm_ElbowSHJnt
+  - first:
+      1: 100028
+    second: Dman_r_Arm_ShoulderSHJnt
+  - first:
+      1: 100030
+    second: Dman_r_Arm_WristSHJnt
+  - first:
+      1: 100032
+    second: Dman_r_Fingers_01_01SHJnt
+  - first:
+      1: 100034
+    second: Dman_r_Fingers_02_01SHJnt
+  - first:
+      1: 100036
+    second: Dman_r_Leg_AnkleSHJnt
+  - first:
+      1: 100038
+    second: Dman_r_Leg_BallSHJnt
+  - first:
+      1: 100040
+    second: Dman_r_Leg_HipSHJnt
+  - first:
+      1: 100042
+    second: Dman_r_Leg_KneeSHJnt
+  - first:
+      1: 100044
+    second: Dman_r_Leg_ToeSHJnt
+  - first:
+      1: 100046
+    second: Dman_ROOTSHJnt
+  - first:
+      1: 100048
+    second: Dman_Spline_01SHJnt
+  - first:
+      1: 100050
+    second: Dman_Spline_02SHJnt
+  - first:
+      1: 100052
+    second: Dman_Spline_TopSHJnt
+  - first:
+      1: 100054
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Dman_head_TopSHJnt
+  - first:
+      4: 400002
+    second: Dman_l_Arm_ClavicleSHJnt
+  - first:
+      4: 400004
+    second: Dman_l_Arm_ElbowSHJnt
+  - first:
+      4: 400006
+    second: Dman_l_Arm_ShoulderSHJnt
+  - first:
+      4: 400008
+    second: Dman_l_Arm_WristSHJnt
+  - first:
+      4: 400010
+    second: Dman_l_Fingers_01_01SHJnt
+  - first:
+      4: 400012
+    second: Dman_l_Fingers_02_01SHJnt
+  - first:
+      4: 400014
+    second: Dman_l_Leg_AnkleSHJnt
+  - first:
+      4: 400016
+    second: Dman_l_Leg_BallSHJnt
+  - first:
+      4: 400018
+    second: Dman_l_Leg_HipSHJnt
+  - first:
+      4: 400020
+    second: Dman_l_Leg_KneeSHJnt
+  - first:
+      4: 400022
+    second: Dman_l_Leg_ToeSHJnt
+  - first:
+      4: 400024
+    second: Dman_r_Arm_ClavicleSHJnt
+  - first:
+      4: 400026
+    second: Dman_r_Arm_ElbowSHJnt
+  - first:
+      4: 400028
+    second: Dman_r_Arm_ShoulderSHJnt
+  - first:
+      4: 400030
+    second: Dman_r_Arm_WristSHJnt
+  - first:
+      4: 400032
+    second: Dman_r_Fingers_01_01SHJnt
+  - first:
+      4: 400034
+    second: Dman_r_Fingers_02_01SHJnt
+  - first:
+      4: 400036
+    second: Dman_r_Leg_AnkleSHJnt
+  - first:
+      4: 400038
+    second: Dman_r_Leg_BallSHJnt
+  - first:
+      4: 400040
+    second: Dman_r_Leg_HipSHJnt
+  - first:
+      4: 400042
+    second: Dman_r_Leg_KneeSHJnt
+  - first:
+      4: 400044
+    second: Dman_r_Leg_ToeSHJnt
+  - first:
+      4: 400046
+    second: Dman_ROOTSHJnt
+  - first:
+      4: 400048
+    second: Dman_Spline_01SHJnt
+  - first:
+      4: 400050
+    second: Dman_Spline_02SHJnt
+  - first:
+      4: 400052
+    second: Dman_Spline_TopSHJnt
+  - first:
+      4: 400054
+    second: //RootNode
+  - first:
+      74: 7400000
+    second: Idle
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -80,23 +198,27 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 1
       lastFrame: 32
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
-      loop: 0
+      loop: 1
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
@@ -177,13 +299,24 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -193,10 +326,14 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -206,14 +343,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
