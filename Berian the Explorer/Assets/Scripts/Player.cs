@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class Player : MonoBehaviour
 {
+    public ParticleSystem[] effects;
     public AudioSource audioSource;
     public AudioClip[] audioClips;
     public ParticleSystem dirt;
@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI finalScore;
     public TextMeshProUGUI failScore;
     public GameObject[] trophy;
+    public GameObject[] trophyProgressBar;
+    public Image progressBar;
     public GameObject failScreen;
     public GameObject finishScreen;
     private GameObject groundCheck;
@@ -52,6 +54,21 @@ public class Player : MonoBehaviour
                 hasPowerUp = false;
                 timer = 8f;
             }
+        }
+        if (totalScore >= 70)
+        {
+            trophyProgressBar[0].SetActive(false);
+            trophyProgressBar[1].SetActive(false);
+            trophyProgressBar[2].SetActive(true);
+        }
+        else if (totalScore >= 60)
+        {
+            trophyProgressBar[0].SetActive(false);
+            trophyProgressBar[1].SetActive(true);
+        }
+        else if(totalScore >= 45)
+        {
+            trophyProgressBar[0].SetActive(true);
         }
         Movement();  
         Jumping();
@@ -151,6 +168,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    Cursor.visible = true;
                     audioSource.PlayOneShot(audioClips[3]);
                     Destroy(gameObject);
                     failScreen.SetActive(true);

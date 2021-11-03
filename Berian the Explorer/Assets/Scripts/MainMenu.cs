@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public AudioClip mouseHover, click;
     public AudioSource audioSource;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
