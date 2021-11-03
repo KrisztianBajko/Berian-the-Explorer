@@ -4,9 +4,10 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public ParticleSystem[] effects;
+    private ParticleSystem powerUp;
+    private GameObject powerUpPosition;
     public AudioSource audioSource;
     public AudioClip[] audioClips;
-    public ParticleSystem dirt;
     public LayerMask groundLayer;
     public Animator anim;
     private Rigidbody rb;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     void Start()
     {
+        powerUpPosition = GameObject.Find("PowerUpPosition");
         Cursor.visible = false;
         startingPosition = new Vector3(-17, -7, 0);
         playerHealth = 3;
@@ -50,12 +52,17 @@ public class Player : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer  <= 0)
             {
+                powerUp.Stop();
                 audioSource.pitch = 1;
                 hasPowerUp = false;
                 timer = 8f;
             }
         }
-        if (totalScore >= 70)
+        if (powerUp != null)
+        {
+            powerUp.transform.position = powerUpPosition.transform.position;
+        }
+            if (totalScore >= 70)
         {
             trophyProgressBar[0].SetActive(false);
             trophyProgressBar[1].SetActive(false);
@@ -107,13 +114,17 @@ public class Player : MonoBehaviour
         // depend on what we collide we do play different sound effects
         if (other.gameObject.CompareTag("PowerUp"))
         {
+            
             //turn on the power up for the player wich allaws the player to kill the enemies by touching them
             audioSource.PlayOneShot(audioClips[1]);
             hasPowerUp = true;
+            Instantiate(effects[2], other.gameObject.transform.position, Quaternion.identity);
+            powerUp = Instantiate(effects[1], transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Diamond"))
         {
+            Instantiate(effects[4],  other.gameObject.transform.position, Quaternion.identity);
             //increase the score whenever we collect a gem
             audioSource.PlayOneShot(audioClips[5]);
             totalScore++;
@@ -144,7 +155,7 @@ public class Player : MonoBehaviour
                 trophy[0].SetActive(true);
             }
         }
-    }
+    } 
     private void OnCollisionEnter(Collision collision)
     {
         // if the player collides with an enemy then the player will die, if the player has power up then the enemy will die instead
@@ -152,6 +163,7 @@ public class Player : MonoBehaviour
         {
             if (hasPowerUp)
             {
+                Instantiate(effects[3],collision.gameObject.transform.position , Quaternion.identity);
                 audioSource.PlayOneShot(audioClips[2]);
                 collision.gameObject.GetComponent<Enemy>().isDead = true;
                 Animator enemyAnim = collision.gameObject.GetComponentInChildren<Animator>();
@@ -177,4 +189,6 @@ public class Player : MonoBehaviour
             }
         }
     }
+    
+    
 }
