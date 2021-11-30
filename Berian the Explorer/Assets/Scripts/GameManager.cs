@@ -2,20 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-  
-    public static MainManager Instance;
-    public Color gemColor;
-    private void Awake()
+    public GameObject pauseMenu;
+    public bool isPaused;
+    private void Update()
     {
-        if (Instance != null)
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(gameObject);
-            return;
+            isPaused = !isPaused;
+            if(isPaused)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
+    }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+    public void Resume()
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

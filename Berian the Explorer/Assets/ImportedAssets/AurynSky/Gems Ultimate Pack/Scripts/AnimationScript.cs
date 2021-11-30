@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AnimationScript : MonoBehaviour {
 
+    private GameManager gameManager;
     public bool isAnimated = false;
 
     public bool isRotating = false;
@@ -26,14 +27,18 @@ public class AnimationScript : MonoBehaviour {
     private float scaleTimer;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-       
+        if (gameManager.isPaused)
+        {
+            return;
+        }
         
         if(isAnimated)
         {
@@ -85,4 +90,6 @@ public class AnimationScript : MonoBehaviour {
             }
         }
 	}
+
+  
 }
