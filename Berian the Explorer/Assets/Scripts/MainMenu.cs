@@ -3,9 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioClip mouseHover, click;
-    public AudioSource audioSource;
+    #region Private Fields
+    [SerializeField] private AudioClip mouseHover, click;
+    [SerializeField] private AudioSource audioSource;
 
+
+    #endregion
+
+    #region Public Methods
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -22,4 +27,6 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    #endregion
 }
